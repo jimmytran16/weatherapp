@@ -1,0 +1,31 @@
+body {
+    background-image: url("https://c1.wallpaperflare.com/preview/519/303/705/forward-nature-sky-rain.jpg");
+    background-size: 100%;
+}
+/* Zip code Box */
+.prompt-weather-div {
+    background-color: rgba(230, 230, 230, 0.164);
+    position: absolute;
+    top: 40%;
+    right: 43%;
+    color: white;
+    padding: 20px;
+}
+
+.prompt-weather-user {
+    padding-right: 10px;
+}
+/* Buttons */
+.btn-primary {
+    color: #fff !important;
+    background-color: #3d7cbf !important;
+    border-color: #191919 !important;
+}
+.btn {
+    line-height: 1.1 !important;
+}
+
+/* Nav bar */
+.bg-light {
+    background-color: #ffffff94!important;
+}

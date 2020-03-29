@@ -1,2 +1,3 @@
-weatherapp/configs.py
-weatherapp/__pycache__
+configs.py
+__pycache__
+static_assets/admin

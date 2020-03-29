@@ -1,15 +1,14 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Weather App</title>
-</head>
-<body>
-    <form action="check" method="GET">
-        Enter the zip code of your location : <input type="text" placeholder="Zip Code" name="zip">
-        <input type="submit">
-
-    </form>
-</body>
-</html>
+{% extends 'layout.html' %}
+{% load static %}
+{% block content %}
+<form action="check" method="GET">
+        <div style="border:5px solid rgba(230, 220, 220, 0.527)"
+            class="d-flex justify-content-center prompt-weather-div">
+            <div class="prompt-zip">
+                <p class="prompt-weather-user">Enter the Zip Code of your location :</p> <input type="number" min="0"
+                    step="1" name="zip" placeholder="Enter zip code" />
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </div>
+        </div>
+</form>
+{% endblock content %}
