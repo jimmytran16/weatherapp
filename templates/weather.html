@@ -1,13 +1,16 @@
 {% extends 'layout.html' %}
 {% block content %}
-
-<div style="border:5px solid rgba(230, 220, 220, 0.527)" class="d-flex justify-content-center prompt-weather-div">
+<div style="border:5px solid rgba(230, 220, 220, 0.527)"
+    class="d-flex justify-content-center prompt-weather-div align-items-center">
     <div class="prompt-zip">
         <b>City:</b> {{ data_list.0 }} <br>
-        <b>Temp:</b> {{ data_list.1 }} <br>
+        <b>Temp:</b> {{ data_list.1 }} °F <br>
         <b>Zip :</b> {{ data_list.2 }} <br>
         <b>Description:</b> {{ data_list.3 }} <br>
         <b>Country:</b> {{ data_list.4 }} <br>
+        <a href="{% url 'index' %}"> 
+            <button type="submit" class="btn btn-primary">Check another city</button>
+        </a>
     </div>
 </div>
 {% endblock content %}

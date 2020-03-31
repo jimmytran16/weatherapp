@@ -7,9 +7,9 @@ body {
     background-color: rgba(230, 230, 230, 0.164);
     position: absolute;
     top: 40%;
-    right: 43%;
     color: white;
     padding: 20px;
+    width: 100%;
 }
 
 .prompt-weather-user {
@@ -28,4 +28,8 @@ body {
 /* Nav bar */
 .bg-light {
     background-color: #ffffff94!important;
+}
+
+.navbar-brand{
+    margin: 0 auto;
 }

@@ -4,7 +4,6 @@ import requests
 import pycountry
 from configs import API_KEY
 from .temp import Temp
-from pprint import pprint
 
 # Create your views here.
 
@@ -30,19 +29,16 @@ def check(request):
     print(url)
     # get the response from server --- convert in json file
     data = requests.get(url).json()
-    if data['cod'] == '404':
+    if data['cod'] == '404' or data['cod'] == '400' :
         return render(request,'index.html',{'err':'City not found!'}) # if city does not exist, send error to the index page
-
-    temp = Temp()  # create an instance of the Temp class to use the KtoF function
-    pprint(data)
-    data_list.append(data['name'])
-    data_list.append(temp.KtoF(data['main']['temp']))
-    data_list.append(zip)
-    data_list.append(data['weather'][0]['description'])
-    data_list.append(data['sys']['country'])
-
-    context = {
-        'data_list': data_list
-    }
-    print(data_list[0])
-    return render(request, 'weather.html', context)
+    else:
+        temp = Temp()  # create an instance of the Temp class to use the KtoF function
+        data_list.append(data['name'])        
+        data_list.append(temp.KtoF(data['main']['temp']))
+        data_list.append(zip)
+        data_list.append(data['weather'][0]['description'])
+        data_list.append(data['sys']['country'])
+        context = {
+            'data_list': data_list # load the weather's data into the context 
+        }
+    return render(request, 'weather.html', context) # pass the context into the webpage
