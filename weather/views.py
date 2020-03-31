@@ -16,7 +16,6 @@ def index(request):
     }
     return render(request, 'index.html',context) # pass the list into the webpage
 
-
 def check(request):
     # get API key
     APIKEY = API_KEY

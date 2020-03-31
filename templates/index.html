@@ -1,23 +1,25 @@
 {% extends 'layout.html' %}
 {% load static %}
 {% block content %}
-<form action="check" method="GET">
-        <div style="border:5px solid rgba(230, 220, 220, 0.527)"
-            class="d-flex justify-content-center prompt-weather-div">
-            <div class="prompt-zip">
-                {% if err %}
-                <span style="color: red;">{{err}}</span>
-                {% endif %}
-                <p class="prompt-weather-user">Enter the Zip Code of your location :</p> <input type="number" min="0"
-                    step="1" name="zip" placeholder="Enter zip code" />
-                    <select name="countrycode">
-                        <option value="US">US</option>
-                        {% for i in alpha %}
-                        <option value="{{i}}">{{i}}</option>
-                        {% endfor %}
-                      </select>
-                  <button type="submit" class="btn btn-primary">Submit</button>
-            </div>
-        </div>
-</form>
+<div style="border:5px solid rgba(230, 220, 220, 0.527)" class="d-flex justify-content-center prompt-weather-div">
+    <div class="prompt-zip">
+        {% if err %}
+        <span style="color: red;">{{err}}</span>
+        {% endif %}
+        <form action="check" method="GET">
+            <p class="prompt-weather-user">Enter the Zip Code of your location :</p> <input type="number" min="0"
+                step="1" name="zip" placeholder="Enter zip code" />
+            <select name="countrycode">
+                <option value="US">US</option>
+                {% for i in alpha %}
+                <option value="{{i}}">{{i}}</option>
+                {% endfor %}
+            </select>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+        <a class="reset_button" href="{% url 'index' %}">
+            <button class="btn btn-primary">Reset</button>
+        </a>
+    </div>
+</div>
 {% endblock content %}
